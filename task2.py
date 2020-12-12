@@ -70,20 +70,20 @@ def get_gpa(score):
 
 def gpa_df(df):
     """Returns a new DF with GPA values only"""
-    DF_COLUMNS = df.columns
-    for column in DF_COLUMNS:
+    df_columns = df.columns
+    for column in df_columns:
         df[column] = df[column].apply(get_gpa)
     return df
 
-MEANS = DF_SCORES.mean()
-GRADES = MEANS.apply(get_grade)
-GPA_SCORES = gpa_df(DF_SCORES)
-STUDENT_GPA = round(GPA_SCORES.mean(),2)
-CLASS_GPA = round(GPA_SCORES.mean().mean(),2)
+means = DF_SCORES.mean()
+grades = means.apply(get_grade)
+gpa_scores = gpa_df(DF_SCORES)
+student_gpa = round(gpa_scores.mean(),2)
+class_gpa = round(gpa_scores.mean().mean(),2)
 
 print('The Grades for each student are:')
-print(GRADES,'\n')
+print(grades,'\n')
 print('The GPAs for each student are:')
-print(STUDENT_GPA)
+print(student_gpa)
 print('\nThe Class GPA is:')
-print(CLASS_GPA)
+print(class_gpa)
