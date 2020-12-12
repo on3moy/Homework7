@@ -75,15 +75,18 @@ def gpa_df(df):
         df[column] = df[column].apply(get_gpa)
     return df
 
-means = DF_SCORES.mean()
-grades = means.apply(get_grade)
-gpa_scores = gpa_df(DF_SCORES)
-student_gpa = round(gpa_scores.mean(),2)
-class_gpa = round(gpa_scores.mean().mean(),2)
+def main():
+    means = DF_SCORES.mean()
+    grades = means.apply(get_grade)
+    gpa_scores = gpa_df(DF_SCORES)
+    student_gpa = round(gpa_scores.mean(),2)
+    class_gpa = round(gpa_scores.mean().mean(),2)
 
-print('The Grades for each student are:')
-print(grades,'\n')
-print('The GPAs for each student are:')
-print(student_gpa)
-print('\nThe Class GPA is:')
-print(class_gpa)
+    print('The Grades for each student are:')
+    print(grades,'\n')
+    print('The GPAs for each student are:')
+    print(student_gpa)
+    print('\nThe Class GPA is:')
+    print(class_gpa)
+    
+main()
